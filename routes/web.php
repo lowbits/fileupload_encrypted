@@ -11,6 +11,13 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'FilesController@index');
+
+Route::get('/upload', 'FilesController@Create');
+
+Route::post('api/files/upload', 'FilesController@addFile');
+Route::post('api/files/addUpload', 'FilesController@addUpload');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
